@@ -24,6 +24,7 @@ export default {
   },
   watch: {
     $route(to, from) {
+      
       // 由主级到次级
       // to.meta 能取到 route 路由参数中的 meta 属性
       // 有主级到次级
