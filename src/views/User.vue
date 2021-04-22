@@ -2,6 +2,9 @@
   <div class="user-box">
     <div>我的</div>
     <router-link to="/detail">跳转到详情页</router-link>
+  <div>
+    <router-link to="/login">登录</router-link>
+  </div>
   </div>
 </template>
 <script>

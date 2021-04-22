@@ -4,7 +4,9 @@
   </div>
 </template>
 <script>
-export default { name: "Cart" };
+export default { 
+  name: "Cart" 
+  };
 </script>
 <style lang="less" scoped>
 </style>
