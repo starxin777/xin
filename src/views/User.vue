@@ -11,6 +11,16 @@
         </div>
       </div>
     </div>
+    <van-grid :column-num="2">
+      <van-grid-item @click="goTo('order')" icon="orders-o" text="我的订单" />
+      <van-grid-item @click="goTo('setting')" icon="user-o" text="账号管理" />
+      <van-grid-item
+        @click="goTo('address?from=mine')"
+        icon="location-o"
+        text="地址管理"
+      />
+      <van-grid-item @click="goTo('about')" icon="friends-o" text="关于我们" />
+    </van-grid>
   </div>
 </template>
 
@@ -19,20 +29,29 @@ import sHeader from "@/components/SimpleHeader";
 import { getUserInfo } from "../service/user";
 export default {
   name: "User",
-  components: { 
-    sHeader 
-    },
+  components: {
+    sHeader,
+  },
   data() {
     return {
-      user: { },
+      user: {},
     };
   },
-  async mounted() {    
-    // 获取用户信息数据    
-    const { data } = await getUserInfo();    
-    // 赋值给 user    
-    this.user = data; 
-     },
+  async mounted() {
+    // 获取用户信息数据
+    const { data } = await getUserInfo();
+    // 赋值给 user
+    this.user = data;
+  },
+  methods: {
+    goBack(){
+      this.$router.go(-1);
+    },
+    goTo(r){
+      this.$router.push({ path: r });
+
+    },
+  }
 };
 </script>
 <style lang="less" scoped>
