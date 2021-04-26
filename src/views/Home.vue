@@ -1,15 +1,15 @@
 <template>
   <div class="home">
     <!-- 顶部导航 -->
-    <header class="home-header wrap" :class="{ active:headerScroll }">
+    <header class="home-header wrap" :class="{ active: headerScroll }">
       <!-- 点击搜索框跳转到分类页 -->
       <router-link tag="i" to="./category"
-        ><i class="iconfont icon-menu"></i
+        ><i class="iconfont icon-fenlei"></i
       ></router-link>
       <!-- 搜索框 -->
       <div class="header-search">
         <span class="app-name">楼楼商城</span>
-        <i class="iconfont icon-search"></i>
+        <i class="iconfont icon-sousuo"></i>
         <router-link tag="span" class="search-title" to="./product-list"
           >山河无恙，人间皆安</router-link
         >
@@ -97,7 +97,7 @@ export default {
   name: "Home",
   data() {
     return {
-      headerScroll:false,
+      headerScroll: false,
       isLogin: false,
       swiperList: [],
       categoryList: [
@@ -161,7 +161,7 @@ export default {
     swiper,
   },
   async mounted() {
-    window.addEventListener("scroll",this.pageScroll);
+    window.addEventListener("scroll", this.pageScroll);
     const token = getLocal("token");
     if (token) {
       this.isLogin = true;
@@ -177,15 +177,15 @@ export default {
     this.newGoods = data.newGoods; // 新品上线
     this.recommendGoods = data.recommendGoods; // 最新推荐
   },
-  methods:{
-    pageScroll(){
-      let scrollTop = 
-      window.pageYOffset ||
-      document.documentElement.scrollTop ||
-      document.body.scrollTop;
-    scrollTop > 100
-      ? (this.headerScroll = true)
-      : (this.headerScroll = false);
+  methods: {
+    pageScroll() {
+      let scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop;
+      scrollTop > 100
+        ? (this.headerScroll = true)
+        : (this.headerScroll = false);
     },
   },
 };
